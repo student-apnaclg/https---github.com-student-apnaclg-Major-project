@@ -1,0 +1,74 @@
+<% layout("/layouts/boilerplate") %>
+<!-- sare form ko ek row ki form m fill krenge or sare div ko as columns treat krenge(Kuki sabki width bht jyada space occupy kr rhi h) -->
+<div class="row mt-3">   
+    <div class="col-7 offset-2">
+        <!-- offset-2 i.e space from left side -->
+        <br>
+    <h3>Create a New Listing</h3>
+    
+    <!-- Sare name ko listing object ki key bna do , easy to find -->
+    <form 
+        method="POST" 
+        action="/listings" 
+        novalidate class="needs-validation" 
+        enctype="multipart/form-data"
+    >
+        <div class="mb-3">
+            <!-- For add spacing , add class margin-bottom 3 -->
+            <label for="title" class="form-label"><b>Title</b></label>
+            <input 
+            name="listing[title]"
+            placeholder="Add a catchy title"
+            type="text" class="form-control" 
+            required
+            />
+            <div class="valid-feedback">Title Looks Good!</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label"><b>Description</b></label>
+            <textarea name="listing[description]" type="text" class="form-control" required></textarea>
+            <div class="invalid-feedback">Please enter short description</div>
+        </div>
+        
+
+        <div class="mb-3">
+            <label for="image" class="form-label"><b>Upload Listing Image</b></label>
+            <input 
+                name="listing[image]" 
+                type="file" 
+                class="form-control"/>
+        </div>
+        
+        <!-- Let's make price and country in same row -->
+        <div class="row">
+            <!-- Medium or medium ke bad 4:8 ka ratio rhe -->
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label"><b>Price</b></label>
+                <input 
+                    name="listing[price]"
+                    placeholder="1,200"
+                    class="form-control" 
+                    required
+                />
+                <div class="invalid-feedback">Price should be valid</div>
+            </div>
+            
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label"><b>Country</b></label>
+                <input name="listing[country]" placeholder="India" type="text" class="form-control" required/>
+                <div class="invalid-feedback">Country name should be valid</div>
+            </div>
+        </div> 
+        
+        <div class="mb-3">
+            <label for="location" class="form-label"><b>Location</b></label>
+            <input name="listing[location]" placeholder="Hapur,UP" type="text" class="form-control" required/>
+            <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        <br>
+        <button class="btn btn-dark offset-6 add-btn mt-3">Add</button>
+        <br><br><br><br>
+    </form>
+    </div>
+</div> 
